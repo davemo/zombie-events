@@ -1,10 +1,16 @@
-# Lineman Bootstrap Boilerplate
+# Zombie Events in Backbone.JS Views
 
-This package is kind of a starting place for me when I build interactive prototypes and single page apps using Twitter Bootstrap, Backbone, Handlebars, Testem and Lineman. It comes with sample routes, views, and models (so you can see how the plumbing works), and a server that stubs out a simple endpoint to return a list of Animals (so you can see how server side integration with Backbone works).
+This is the source code for a [screencast](http://www.youtube.com/watch?v=BH4Cdq3cV44) I did on a quick examination of view level zombie events in Backbone.JS, how they manifest and one solution to help eliminate them. There are 3 commits in this codebase that walk through the steps I go through in the screencast.
 
-# Customizations
+# Running the App
 
-I've overridden the lineman defaults to provide a better starting place for how I  develop, these include:
+1. Clone this repo
+2. npm install
+3. grunt run
+
+# Other Notes
+
+This project was built with [Lineman](https://github.com/testdouble/lineman) but makes significant modifications to portions of it, including:
 
 1. Custom [Express.JS](http://expressjs.com/) server with stubbed endpoints
 2. [Testem](https://github.com/airportyh/testem) for running specs separate from the lineman process: testem -f config/spec.json
@@ -13,20 +19,7 @@ I've overridden the lineman defaults to provide a better starting place for how 
 5. [Backbone](http://documentcloud.github.com/backbone/) router, models, collections and views in a way I usually organize things
 6. Removal of default coffeescript files that lineman generates; you can still write coffeescript with lineman if you so desire, it's just not where I start :)
 
-# Running the App
-
-1. Clone this repo
-2. npm install
-3. grunt run
-
-# Running the Specs
-
-1. npm install (if you haven't already)
-2. testem -f config/spec.js (runs in phantom if you have it, and chrome)
-
-# Notes
-
-This project relies on [Lineman](https://github.com/testdouble/lineman).
+If you want a boilerplate project that features this application structure you can generate and customize one yourself with [Lineman](https://github.com/testdouble/lineman) or clone a copy of my [Lineman-Bootstrap-Boilerplate](https://github.com/davemo/lineman-bootstrap-boilerplate).
 
 # License
 
