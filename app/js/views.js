@@ -13,11 +13,17 @@
   });
   
   v.HomePage = v.Page.extend({
-      title: "Home"
+      title: "Home",
+      events: {
+          "click .say-hi" : function() { alert('I am Home'); }
+      }
   });
 
   v.AboutPage = v.Page.extend({
-      title: "About"
+      title: "About",
+      events: {
+          "click .say-hi" : function() { alert('I am About'); }
+      }
   });
 
 })(APP.Views, APP.Runtime);
