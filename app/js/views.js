@@ -4,16 +4,29 @@
     initialize: function() {
       this.template = JST[this.template];
       this.render();
-      this.on("rendered", this.components || function() {});
+      if(this.components) {
+        this.components();
+      }
     },
     render: function() {
       this.$el.html(this.template((this.model || this.collection || new Backbone.Model({})).toJSON()));
-      this.trigger("rendered");
       return this;
     }
   });
 
-  v.Component = v.Page;
+  v.Component = Backbone.View.extend({
+    initialize: function() {
+      this.template = JST[this.template];
+      this.render();
+      if(this.components) {
+        this.components();
+      }
+    },
+    render: function() {
+      this.$el.html(this.template((this.model || this.collection || new Backbone.Model({})).toJSON()));
+      return this;
+    }
+  });
 
   v.Forecaster = v.Component.extend({
     template: "app/templates/components/forecaster.hb"
