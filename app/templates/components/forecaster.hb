@@ -1,0 +1,1 @@
+<p>It's {{ temperature }} in {{ city }} this {{ timeOfDay }}.</p>

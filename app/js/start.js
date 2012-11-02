@@ -1,6 +1,6 @@
-(function(routers, runtime, collections) {
+(function(routers) {
 
   new routers.Main();
   Backbone.history.start();
 
-})(APP.Routers, APP.Runtime, APP.Collections);
+})(APP.Routers);

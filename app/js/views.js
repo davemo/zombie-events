@@ -1,28 +1,48 @@
-(function(v, runtime) {
-  
+(function(v) {
+
   v.Page = Backbone.View.extend({
-      template: _.template("<h2>I am the {{ title }} page</h2><input type='button' class='say-hi' value='Say Hi'/>"),
-      initialize: function() {
-        this.render();
-      },
-      render: function() {
-        this.$el.html(this.template({ title: this.title }));
-        return this;
+    initialize: function() {
+      this.template = JST[this.template];
+      this.render();
+      if(this.components) {
+        _.defer(this.components);
       }
+    },
+    render: function() {
+      this.$el.html(this.template((this.model || this.collection || new Backbone.Model({})).toJSON()));
+      return this;
+    }
   });
-  
+
+  v.Component = v.Page;
+
+  v.Forecaster = v.Component.extend({
+    template: "app/templates/components/forecaster.hb",
+    el: ".forecaster"
+  });
+
   v.HomePage = v.Page.extend({
-      title: "Home",
-      events: {
-          "click .say-hi" : function() { alert('I am Home'); }
-      }
+    template: "app/templates/pages/home.hb",
+    components: function() {
+      var SaskatoonWeather = new Backbone.Model({
+        temperature: "cold",
+        city: "Saskatoon",
+        timeOfDay: "evening"
+      });
+      new v.Forecaster({ model: SaskatoonWeather });
+    }
   });
 
   v.AboutPage = v.Page.extend({
-      title: "About",
-      events: {
-          "click .say-hi" : function() { alert('I am About'); }
-      }
+    template: "app/templates/pages/about.hb",
+    components: function() {
+      var ColumbusWeather = new Backbone.Model({
+        temperature: "chilly",
+        city: "Columbus",
+        timeOfDay: "morning"
+      });
+      new v.Forecaster({ model: ColumbusWeather });
+    }
   });
 
-})(APP.Views, APP.Runtime);
+})(APP.Views);
