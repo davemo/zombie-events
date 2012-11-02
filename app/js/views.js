@@ -14,7 +14,19 @@
     }
   });
 
-  v.Component = v.Page;
+  v.Component = Backbone.View.extend({
+    initialize: function() {
+      this.template = JST[this.template];
+      this.render();
+      if(this.components) {
+        _.defer(this.components);
+      }
+    },
+    render: function() {
+      this.$el.html(this.template((this.model || this.collection || new Backbone.Model({})).toJSON()));
+      return this;
+    }
+  });
 
   v.Forecaster = v.Component.extend({
     template: "app/templates/components/forecaster.hb",
