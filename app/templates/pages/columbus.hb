@@ -1,3 +1,3 @@
-<h2>I'm the about page</h2>
+<h2>Welcome to Columbus!</h2>
 
 <div class="forecaster"></div>

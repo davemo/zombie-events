@@ -6,15 +6,15 @@
       this.container = $("#page");
     },
     routes: {
-      "home"    : "home",
-      "about"   : "about",
-      "*path"   : "home"
+      "saskatoon"    : "saskatoon",
+      "columbus"   : "columbus",
+      "*path"   : "saskatoon"
     },
-    home: function() {
-      this._renderPage(v.HomePage);
+    saskatoon: function() {
+      this._renderPage(v.Saskatoon);
     },
-    about: function() {
-      this._renderPage(v.AboutPage);
+    columbus: function() {
+      this._renderPage(v.Columbus);
     },
     _renderPage: function(View) {
       this.container.empty().append(new View().render().el);

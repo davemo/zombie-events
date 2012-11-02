@@ -33,15 +33,15 @@
   });
 
   // Pages
-  v.HomePage = v.Page.extend({
-    template: JST["app/templates/pages/home.hb"],
+  v.Saskatoon = v.Page.extend({
+    template: JST["app/templates/pages/saskatoon.hb"],
     components: function() {
       new v.Forecaster({ model: SaskatoonWeather }).render();
     }
   });
 
-  v.AboutPage = v.Page.extend({
-    template: JST["app/templates/pages/about.hb"],
+  v.Columbus = v.Page.extend({
+    template: JST["app/templates/pages/columbus.hb"],
     components: function() {
       new v.Forecaster({ model: ColumbusWeather }).render();
     }

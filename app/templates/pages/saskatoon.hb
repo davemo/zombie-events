@@ -1,3 +1,3 @@
-<h2>I'm the home page</h2>
+<h2>Welcome to Saskatoon!</h2>
 
 <div class="forecaster"></div>
