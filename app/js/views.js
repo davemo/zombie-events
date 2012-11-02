@@ -4,12 +4,11 @@
     initialize: function() {
       this.template = JST[this.template];
       this.render();
-      if(this.components) {
-        _.defer(this.components);
-      }
+      this.on("rendered", this.components || function() {});
     },
     render: function() {
       this.$el.html(this.template((this.model || this.collection || new Backbone.Model({})).toJSON()));
+      this.trigger("rendered");
       return this;
     }
   });
@@ -17,8 +16,7 @@
   v.Component = v.Page;
 
   v.Forecaster = v.Component.extend({
-    template: "app/templates/components/forecaster.hb",
-    el: ".forecaster"
+    template: "app/templates/components/forecaster.hb"
   });
 
   v.HomePage = v.Page.extend({
@@ -29,7 +27,10 @@
         city: "Saskatoon",
         timeOfDay: "evening"
       });
-      new v.Forecaster({ model: SaskatoonWeather });
+      new v.Forecaster({
+        el: this.$(".forecaster"),
+        model: SaskatoonWeather
+      });
     }
   });
 
@@ -41,7 +42,10 @@
         city: "Columbus",
         timeOfDay: "morning"
       });
-      new v.Forecaster({ model: ColumbusWeather });
+      new v.Forecaster({
+        el: this.$(".forecaster"),
+        model: ColumbusWeather
+      });
     }
   });
 
