@@ -1,5 +1,5 @@
 (function(r, v, runtime) {
-    
+
   r.Main = Backbone.Router.extend({
     initialize: function() {
       _.bindAll(this);
@@ -11,14 +11,14 @@
       "*path"   : "home"
     },
     home: function() {
-      this._renderPage(new v.HomePage());
+      this._renderPage(v.HomePage);
     },
     about: function() {
-      this._renderPage(new v.AboutPage());
+      this._renderPage(v.AboutPage);
     },
-    _renderPage: function(view) {
-      this.container.empty().append(view.render().el);
+    _renderPage: function(View) {
+      this.container.empty().append(new View().render().el);
     }
   });
-  
+
 })(APP.Routers, APP.Views, APP.Runtime);
