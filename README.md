@@ -1,5 +1,7 @@
 # Zombie Events in Backbone.JS Views
 
+![visualization](https://raw.githubusercontent.com/davemo/zombie-events/master/visualization.png)
+
 This is the source code for a [screencast](http://www.youtube.com/watch?v=BH4Cdq3cV44) I did on a quick examination of view level zombie events in Backbone.JS, how they manifest and one solution to help eliminate them. There are 3 commits in this codebase that walk through the steps I go through in the screencast.
 
 # Running the App
