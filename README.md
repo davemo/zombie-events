@@ -26,3 +26,7 @@ If you want a boilerplate project that features this application structure you c
 # License
 
 MIT
+
+# Acknowledgments
+
+@adamzerner for the visualization graphic :)
